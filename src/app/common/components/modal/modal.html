@@ -1,0 +1,21 @@
+<div class="modal-backdrop"></div>
+
+<div class="modal-wrapper">
+  <div class="modal">
+    <i class="ion-close-round close" (click)="close()"></i>
+    <h1>Create a session</h1>
+
+    <p class="error" *ngIf="error">No session with given key found</p>
+    <p>Share the code below with your friend, ask him to open Airflix, click "Join" and enter the code below.</p>
+
+    <input
+      type="text"
+      placeholder="Enter code"
+      [disabled]="type === 'create'"
+      [(ngModel)]="keyInputValue"
+      (keyup)="onKeyChange()"
+    />
+
+    <button class="common" [disabled]="type === 'create'" (click)="action()">{{ type === 'create' ? 'Waiting for partner...' : 'Join' }}</button>
+  </div>
+</div>

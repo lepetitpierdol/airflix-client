@@ -1,0 +1,140 @@
+div.watch {
+  div.player-wrapper {
+    width: 100%;
+
+    &.hidden {
+      visibility: hidden;
+    }
+
+    div.player {
+      width: inherit;
+    }
+  }
+
+  div.proposals {
+    div.msg {
+      font-size: 15px;
+      font-weight: 400;
+      max-width: 300px;
+      margin: 15px auto;
+      border-radius: 3px;
+      padding: 10px;
+
+      &.success {
+        background-color: #4CAF50;
+        color: #fff;
+      }
+
+      &.error {
+        background-color: #ef9a9a;
+        color: #d50000;
+      }
+    }
+
+    div.new-video {
+      max-width: 400px;
+      margin: 20px auto;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+
+      input {
+        height: 40px;
+        padding: 0 10px;
+        font-size: 18px;
+        margin: 10px 0;
+        border-radius: 4px;
+        background-color: #fff;
+        outline: none;
+        color: #888;
+        border: 3px solid #e8e8e8;
+      }
+
+      button {
+        font-weight: 400;
+        font-size: 16px;
+      }
+    }
+
+    div.list {
+      margin: 20px 10px;
+
+      div.each {
+        display: flex;
+        flex-direction: row;
+        max-width: 600px;
+        height: 80px;
+        padding: 10px;
+        margin: 20px auto;
+        box-shadow: 0 0 35px #bcbcbc;
+
+        div.thumbnail {
+          height: 80px;
+
+          img {
+            height: 100%;
+          }
+        }
+
+        div.data {
+          text-align: left;
+          margin-left: 10px;
+          width: 100%;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+
+          > span {
+            color: #888;
+          }
+
+          div.additional {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+
+            div.info {
+              display: flex;
+              flex-direction: row;
+
+              > div {
+                font-size: 14px;
+                color: #aaa;
+                margin-right: 10px;
+              }
+            }
+
+            div.actions {
+              background-color: #eee;
+              border-radius: 15px;
+              height: 30px;
+              line-height: 30px;
+              padding: 0 10px;
+
+              button {
+                color: #aaa;
+                background: none;
+                outline: none;
+                border: 0;
+                font-size: 13px;
+                cursor: pointer;
+                height: 100%;
+                width: 100%;
+                display: flex;
+
+                i {
+                  margin-right: 10px;
+                }
+
+                &:not(:disabled):hover {
+                  color: #888;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

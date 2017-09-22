@@ -1,0 +1,61 @@
+<div class="watch">
+  <div class="player-wrapper" [ngClass]="{'hidden': !activeVideo}">
+    <div class="player" #playerElement></div>
+  </div>
+
+  <div class="proposals">
+    <div class="msg error" *ngIf="proposalError">
+      Something went wrong
+    </div>
+
+    <div class="msg success" *ngIf="proposalSuccess">
+      Success
+    </div>
+
+    <div class="new-video">
+      <input type="link" placeholder="Paste youtube video URL here" [(ngModel)]="link" />
+      <button class="common" (click)="proposeLink()">Propose watching</button>
+    </div>
+
+    <div class="list">
+      <div class="each" *ngFor="let proposal of proposals">
+        <div class="thumbnail">
+          <img [src]="proposal.thumbnailUrl" />
+        </div>
+
+        <div class="data">
+          <span>
+            <a [href]="proposal.url" target="_blank">{{ proposal.title }}</a> ({{ proposal.duration }})
+          </span>
+
+          <div class="additional">
+            <div class="info">
+              <div>
+                <i class="ion-person"></i> by {{ proposal.owner }}
+              </div>
+              <div>
+                <i class="ion-play"></i> {{ proposal.views }} views
+              </div>
+            </div>
+
+            <div class="actions">
+              <button
+                (click)="acceptProposal(proposal)"
+                *ngIf="!activeVideo || (activeVideo && activeVideo.id !== proposal.id)"
+              >
+                <i class="ion-checkmark"></i> Play
+              </button>
+
+              <button
+                [disabled]="true"
+                *ngIf="activeVideo && (activeVideo && activeVideo.id === proposal.id)"
+              >
+                <i class="ion-play"></i> currently playing
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,13 @@
+<header>
+  <h1>airflix</h1>
+  <h2>Watch Youtube videos live with your friends</h2>
+</header>
+
+<div class="container">
+  <start-options *ngIf="!connectionEstablished"></start-options>
+  <watch *ngIf="connectionEstablished"></watch>
+</div>
+
+<footer>
+  Made by <a href="https://pandarosso.eu" target="_blank">Pandarosso</a>
+</footer>

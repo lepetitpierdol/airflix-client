@@ -1,0 +1,91 @@
+@import url('https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900');
+@import url('https://fonts.googleapis.com/css?family=Satisfy');
+
+@import 'colors';
+@import 'mixins';
+
+body {
+  background-color: $bg;
+  max-width: 960px;
+  margin: 0 auto;
+  font-family: 'Lato', sans-serif;
+}
+
+a {
+  text-decoration: none;
+  color: $bittersweet;
+  cursor: pointer;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+button.common {
+  background-color: #fff;
+  color: $bittersweet;
+  font-size: 16px;
+  height: 50px;
+  border-radius: 5px;
+  outline: none;
+  border: 3px solid $bittersweet;
+  font-weight: 500;
+  padding: 0 25px;
+  margin: 0 10px;
+  text-transform: uppercase;
+  cursor: pointer;
+
+  &:disabled {
+    background-color: $bittersweet;
+    color: #fff;
+    opacity: 0.8;
+  }
+
+  &:hover {
+    background-color: $bittersweet;
+    color: #fff;
+  }
+}
+
+airflix-app {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 100vh;
+}
+
+header {
+  text-align: center;
+
+  h1 {
+    font-size: 80px;
+    font-family: 'Satisfy', cursive;
+    color: $purple;
+    margin: 0;
+  }
+
+  h2 {
+    font-size: 22px;
+    color: $light-purple;
+    margin: 10px 0;
+  }
+}
+
+div.container {
+  width: 100%;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+footer {
+  font-size: 14px;
+  color: #aaa;
+  text-align: center;
+  margin: 10px 0;
+}
+
+@import 'start-options';
+@import 'modals';
+@import 'watch';

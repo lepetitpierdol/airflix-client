@@ -1,0 +1,15 @@
+<div class="start-options">
+  <p>Create a room and send the code to your friend or click "Join" if your friend has already created a session and enter the code.</p>
+
+  <div class="buttons">
+    <button class="common" (click)="createSession()">Create</button>
+    <button class="common" (click)="joinSession()">Join</button>
+  </div>
+
+  <modal
+    *ngIf="modalState"
+    [key]="createModalKey"
+    [type]="createModalKey ? 'create' : 'join'"
+    (onClose)="onModalClose()"
+  ></modal>
+</div>
