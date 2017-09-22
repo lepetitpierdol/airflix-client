@@ -52,6 +52,7 @@ export class SocketService {
 
     return new Promise((resolve, reject) => {
       this.io.on('videoProposalResolve', (reply: string | boolean) => {
+        this.io.off('videoProposalResolve');
         if (reply === true) {
           resolve(true);
         } else {
@@ -61,32 +62,18 @@ export class SocketService {
     });
   }
 
-  public onProposalReceive(): Observable<VideoData> {
-    return new Observable(observer => {
-      this.io.on('videoProposalReceive', function(playData: VideoData) {
-        observer.next(playData);
-      });
-    });
-  }
-
   public acceptProposal(videoProposal: VideoData): Promise<string | boolean> {
     this.io.emit('videoProposalAccept', videoProposal);
 
     return new Promise((resolve, reject) => {
       this.io.on('videoProposalAcceptResolve', (reply) => {
+        this.io.off('videoProposalAcceptResolve');
+
         if (reply) {
           return resolve(true);
         } else {
           return reject(reply);
         }
-      });
-    });
-  }
-
-  public onVideoStart(): Observable<VideoData> {
-    return new Observable(observer => {
-      this.io.on('videoStart', function(video: VideoData) {
-        observer.next(video);
       });
     });
   }

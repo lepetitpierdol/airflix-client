@@ -12,12 +12,16 @@ import {WatchComponent} from './app/watch/components/watch/watch';
 import {SocketService} from './app/common/services/socket';
 import {YoutubePlayerService} from './app/youtube/services/player';
 
+// Pipes
+import {HumanizeDurationPipe} from './app/watch/pipes/humanize-duration';
+
 @NgModule({
   declarations: [
     AppComponent,
     StartOptionsComponent,
     ModalComponent,
-    WatchComponent
+    WatchComponent,
+    HumanizeDurationPipe
   ],
   imports: [
     BrowserModule,

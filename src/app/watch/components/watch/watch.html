@@ -18,37 +18,37 @@
     </div>
 
     <div class="list">
-      <div class="each" *ngFor="let proposal of proposals">
+      <div class="each" *ngFor="let video of proposals">
         <div class="thumbnail">
-          <img [src]="proposal.thumbnailUrl" />
+          <img [src]="video.thumbnailUrl" />
         </div>
 
         <div class="data">
           <span>
-            <a [href]="proposal.url" target="_blank">{{ proposal.title }}</a> ({{ proposal.duration }})
+            <a [href]="video.url" target="_blank">{{ video.title }}</a> ({{ video.duration | humanizeDuration }})
           </span>
 
           <div class="additional">
             <div class="info">
               <div>
-                <i class="ion-person"></i> by {{ proposal.owner }}
+                <i class="ion-person"></i> by {{ video.owner }}
               </div>
               <div>
-                <i class="ion-play"></i> {{ proposal.views }} views
+                <i class="ion-play"></i> {{ video.views }} views
               </div>
             </div>
 
             <div class="actions">
               <button
-                (click)="acceptProposal(proposal)"
-                *ngIf="!activeVideo || (activeVideo && activeVideo.id !== proposal.id)"
+                (click)="acceptProposal(video)"
+                *ngIf="!activeVideo || (activeVideo && activeVideo.id !== video.id)"
               >
                 <i class="ion-checkmark"></i> Play
               </button>
 
               <button
                 [disabled]="true"
-                *ngIf="activeVideo && (activeVideo && activeVideo.id === proposal.id)"
+                *ngIf="activeVideo && (activeVideo && activeVideo.id === video.id)"
               >
                 <i class="ion-play"></i> currently playing
               </button>

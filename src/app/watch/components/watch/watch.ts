@@ -48,7 +48,7 @@ export class WatchComponent {
           }
         });
 
-        this.socketService.onProposalReceive()
+        this.socketService.observe('videoProposalReceive')
           .subscribe((videoProposal: VideoData) => {
             this.onVideoProposalReceive(videoProposal);
           })
@@ -62,7 +62,7 @@ export class WatchComponent {
           })
         ;
 
-        this.socketService.onVideoStart()
+        this.socketService.observe('videoStart')
           .subscribe((video: VideoData) => {
             this.activeVideo = video;
             this.preparePlayer();
